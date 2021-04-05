@@ -15,7 +15,16 @@ class CreateTradingAccountsTable extends Migration
     {
         Schema::create('trading_accounts', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->string('account_number');
+            $table->string('master_name');
+            $table->string('sub_account_name');
+            $table->string('base_currency');
+            $table->integer('balance');
+            $table->integer('equity');
+            $table->integer('leverage');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

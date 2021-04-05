@@ -15,7 +15,14 @@ class CreateSupportTicketsTable extends Migration
     {
         Schema::create('support_tickets', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('description');
+            $table->date('time');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('support_ticket_category_id');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('support_ticket_category_id')->references('id')->on('support_ticket_categories');
         });
     }
 
