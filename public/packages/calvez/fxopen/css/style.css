@@ -1,0 +1,43 @@
+.btn-primary,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    color: #fff;
+    background-color: #ff7f26;
+    border-color: #e07833e1;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+    background-color: #ff8026c9;
+    border-color: #e07833e1;
+}
+
+a,
+a:hover {
+    color: #ce5600;
+    text-decoration: none;
+}
+
+.btn-link,
+.sidebar .nav-link:hover,
+.sidebar .nav-link:active,
+.sidebar.sidebar-pills .nav-link.active,
+.sidebar.sidebar-pills .nav-link:hover {
+    color: #ce5600 !important;
+    background: rgba(0, 0, 0, .02);
+}
+
+.sidebar .nav-link.active .nav-icon,
+.sidebar.bg-white .nav-link.active .nav-icon,
+.sidebar.bg-white .nav-link.active .nav-icon:hover,
+.sidebar.bg-white .nav-link.active .nav-icon:active {
+    color: #ff8026 !important;
+    border-color: #e07833e1 !important;
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #ff7f26;
+    border-color: #e07833e1;
+}
