@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\TodoRequest;
+use App\Http\Requests\IssueRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class TodoCrudController
+ * Class IssueCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class TodoCrudController extends CrudController
+class IssueCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +26,9 @@ class TodoCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Todo::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/todo');
-        CRUD::setEntityNameStrings('todo', 'todos');
+        CRUD::setModel(\App\Models\Issue::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/issue');
+        CRUD::setEntityNameStrings('issue', 'issues');
     }
 
     /**
@@ -56,32 +56,12 @@ class TodoCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(TodoRequest::class);
+        CRUD::setValidation(IssueRequest::class);
 
         //CRUD::setFromDb(); // fields
-        $this->crud->addField([
-            'name' => 'time',
-            'type' => 'date_picker',
-            'label' => "Date",
-            'date_picker_options' => [
-                'todayBtn' => 'linked',
-                'format'   => 'dd-mm-yyyy',
-                'language' => 'en'
-            ],
-        ]);
-        $this->crud->addField([
-            'name' => 'title',
-            'type' => 'text',
-            'label' => "title"
-        ]);
-        $this->crud->addField([
-            'name' => 'description',
-            'type' => 'textarea',
-            'label' => "description"
-        ]);
         $this->crud->addField(
             [  // Select2
-                'label'     => "Client",
+                'label'     => "User",
                 'type'      => 'select2',
                 'name'      => 'user_id', // the db column for the foreign key
 
@@ -97,31 +77,15 @@ class TodoCrudController extends CrudController
                 }), // force the related options to be a custom query, instead of all(); you can use this to filter the results show in the select
             ]
         );
-        $this->crud->addField(
-            [  // Select2
-                'label'     => "Category",
-                'type'      => 'select2',
-                'name'      => 'todos_category_id', // the db column for the foreign key
-
-                // optional
-                'entity'    => 'user', // the method that defines the relationship in your Model
-                'model'     => "App\Models\Todos_category", // foreign key model
-                'attribute' => 'name', // foreign key attribute that is shown to user
-                'default'   => 2, // set the default value of the select2
-
-                // also optional
-                'options'   => (function ($query) {
-                    return $query->orderBy('name', 'ASC')->get();
-                }), // force the related options to be a custom query, instead of all(); you can use this to filter the results show in the select
-            ]
-        );
         $this->crud->addField([
-            'name' => 'status',
-            'type' => 'select_from_array',
-            'label' => "Status",
-            'options'   => ['open' => 'OPEN', 'closed' => 'CLOSED', 'unresolved' => 'UNRESOLVED', 'terminated' => 'TERMINATED'],
-            'allows_null'     => false,
-            'allows_multiple' => false,
+            'name' => 'title',
+            'type' => 'text',
+            'label' => "Title"
+        ]);
+        $this->crud->addField([
+            'name' => 'details',
+            'type' => 'textarea',
+            'label' => "Please explain the issue here"
         ]);
 
         /**

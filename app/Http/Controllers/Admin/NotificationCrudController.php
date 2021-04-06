@@ -66,7 +66,7 @@ class NotificationCrudController extends CrudController
         ]);
         $this->crud->addField([
             'name' => 'description',
-            'type' => 'tinymce',
+            'type' => 'textarea',
             'label' => "Description"
         ]);
 

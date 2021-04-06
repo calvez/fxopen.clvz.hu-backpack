@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTimersTable extends Migration
+class CreateIssuesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateTimersTable extends Migration
      */
     public function up()
     {
-        Schema::create('timers', function (Blueprint $table) {
+        Schema::create('issues', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->timestamp('started_at');
-            $table->timestamp('stopped_at')->default(null)->nullable();
-            $table->string('location')->default('Malaysia');
-            $table->timestamps();
+            $table->string('title');
+            $table->string('details');
             $table->foreign('user_id')->references('id')->on('users');
-
+            $table->timestamps();
         });
     }
 
@@ -32,6 +30,6 @@ class CreateTimersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('timers');
+        Schema::dropIfExists('issues');
     }
 }

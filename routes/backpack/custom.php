@@ -21,4 +21,7 @@ Route::group([
     Route::crud('trading_account', 'Trading_accountCrudController');
     Route::crud('todos_category', 'Todos_categoryCrudController');
     Route::crud('support_ticket_category', 'Support_ticket_categoryCrudController');
+    Route::crud('timer', 'TimerCrudController');
+    Route::crud('issue', 'IssueCrudController');
+    Route::crud('deposit', 'DepositCrudController');
 }); // this should be the absolute last line of this file

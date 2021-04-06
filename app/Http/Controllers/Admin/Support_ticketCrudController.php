@@ -84,7 +84,7 @@ class Support_ticketCrudController extends CrudController
         ]);
         $this->crud->addField([
             'name' => 'description',
-            'type' => 'text',
+            'type' => 'textarea',
             'label' => "Description"
         ]);
         $this->crud->addField([

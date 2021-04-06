@@ -25,9 +25,6 @@
     </ul>
 </li>
 
-
-
-
 <li class="nav-item nav-dropdown">
     <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-cog"></i> Settings</a>
     <ul class="nav-dropdown-items">
@@ -45,3 +42,9 @@
                 <span>Settings</span></a></li>
     </ul>
 </li>
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('timer') }}'><i class='nav-icon la la-question'></i>
+        Log In Tracker</a></li>
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('issue') }}'><i class='nav-icon la la-question'></i> Issues</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('deposit') }}'><i class='nav-icon la la-question'></i> Deposits</a></li>
