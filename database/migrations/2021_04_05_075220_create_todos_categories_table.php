@@ -15,7 +15,7 @@ class CreateTodosCategoriesTable extends Migration
     {
         Schema::create('todos_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->default('None');
             $table->timestamps();
         });
     }

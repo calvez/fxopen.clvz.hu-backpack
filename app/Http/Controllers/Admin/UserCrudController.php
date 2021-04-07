@@ -40,13 +40,6 @@ class UserCrudController extends CrudController
     protected function setupListOperation()
     {
         //CRUD::setFromDb(); // fields
-        CRUD::column('name');
-        CRUD::column('email');
-        CRUD::column('password');
-        CRUD::column('phone');
-        CRUD::column('address');
-        CRUD::column('passport');
-        CRUD::column('joined');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -64,15 +57,7 @@ class UserCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(UserRequest::class);
-        CRUD::setFromDb(); // fields
 
-        CRUD::addField('name');
-        CRUD::addField('email');
-        CRUD::addField('password');
-        CRUD::addField('phone');
-        CRUD::addField('address');
-        CRUD::addField('passport');
-        CRUD::addField('joined');
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');

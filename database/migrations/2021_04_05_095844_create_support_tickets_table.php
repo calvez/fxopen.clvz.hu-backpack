@@ -19,7 +19,7 @@ class CreateSupportTicketsTable extends Migration
             $table->string('description');
             $table->date('time');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('support_ticket_category_id');
+            $table->unsignedBigInteger('support_ticket_category_id')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('support_ticket_category_id')->references('id')->on('support_ticket_categories');

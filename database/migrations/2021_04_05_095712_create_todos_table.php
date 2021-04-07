@@ -20,7 +20,7 @@ class CreateTodosTable extends Migration
             $table->string('description');
             $table->string('status');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('todos_category_id');
+            $table->unsignedBigInteger('todos_category_id')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('todos_category_id')->references('id')->on('todos_categories');
