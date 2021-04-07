@@ -20,7 +20,7 @@ class CreatePortfoliosTable extends Migration
             $table->string('phone')->nullable();
             $table->mediumText('address')->nullable();
             $table->string('passport')->nullable();
-            $table->date('joined')->nullable();
+            $table->date('joined')->nullable()->default('2020-01-01');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
