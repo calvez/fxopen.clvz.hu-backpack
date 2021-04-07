@@ -16,12 +16,11 @@ class CreatePortfoliosTable extends Migration
         Schema::create('portfolios', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->timestamp('date');
-            $table->string('base_currency');
-            $table->string('phone');
-            $table->mediumText('address');
-            $table->string('passport');
-            $table->date('joined');
+            $table->string('base_currency')->nullable();
+            $table->string('phone')->nullable();
+            $table->mediumText('address')->nullable();
+            $table->string('passport')->nullable();
+            $table->date('joined')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
