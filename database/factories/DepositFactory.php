@@ -23,9 +23,9 @@ class DepositFactory extends Factory
     public function definition()
     {
         return [
-            'date' => $this->faker->date(),
+            'date' => $this->faker->timestamp(),
             'base_currency' => $this->faker->currencyCode(),
-            'abount' => $this->faker->number(),
+            'amount' => Str::random(5),
             'transaction_id' => Str::random(10),
             'details' => $this->faker->text(),
         ];

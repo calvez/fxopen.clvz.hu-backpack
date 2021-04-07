@@ -28,7 +28,7 @@ class Trading_accountCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Trading_account::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/trading_account');
-        CRUD::setEntityNameStrings('trading_account', 'trading accounts');
+        CRUD::setEntityNameStrings('Trading Account', 'Trading Accounts');
     }
 
     /**

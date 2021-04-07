@@ -12,6 +12,15 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('support_ticket') }}'><i
             class='nav-icon la la-support'></i> Service request</a></li>
 
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('timer') }}'><i class='nav-icon la la-question'></i>
+        Log In Tracker</a></li>
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('issue') }}'><i class='nav-icon la la-question'></i>
+        Report Issues</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('deposit') }}'><i class='nav-icon la la-question'></i>
+        Transaction Logs</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('portfolio') }}'><i class='nav-icon la la-question'></i>
+        Portfolio Cabinet</a></li>
 <!-- Users, Roles, Permissions -->
 <li class="nav-item nav-dropdown">
     <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-users"></i> Authentication</a>
@@ -42,9 +51,3 @@
                 <span>Settings</span></a></li>
     </ul>
 </li>
-
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('timer') }}'><i class='nav-icon la la-question'></i>
-        Log In Tracker</a></li>
-
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('issue') }}'><i class='nav-icon la la-question'></i> Issues</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('deposit') }}'><i class='nav-icon la la-question'></i> Deposits</a></li>

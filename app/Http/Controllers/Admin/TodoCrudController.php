@@ -89,7 +89,6 @@ class TodoCrudController extends CrudController
                 'entity'    => 'user', // the method that defines the relationship in your Model
                 'model'     => "App\Models\User", // foreign key model
                 'attribute' => 'name', // foreign key attribute that is shown to user
-                'default'   => 2, // set the default value of the select2
 
                 // also optional
                 'options'   => (function ($query) {

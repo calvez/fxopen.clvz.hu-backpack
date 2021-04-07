@@ -24,4 +24,5 @@ Route::group([
     Route::crud('timer', 'TimerCrudController');
     Route::crud('issue', 'IssueCrudController');
     Route::crud('deposit', 'DepositCrudController');
+    Route::crud('portfolio', 'PortfolioCrudController');
 }); // this should be the absolute last line of this file

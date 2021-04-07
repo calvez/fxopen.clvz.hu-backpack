@@ -28,7 +28,7 @@ class Support_ticketCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Support_ticket::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/support_ticket');
-        CRUD::setEntityNameStrings('support_ticket', 'support_tickets');
+        CRUD::setEntityNameStrings('Service request', 'Service Tickets');
     }
 
     /**

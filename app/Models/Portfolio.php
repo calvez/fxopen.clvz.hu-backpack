@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Issue extends Model
+class Portfolio extends Model
 {
-    use HasFactory, CrudTrait;
+    use CrudTrait;
 
     /*
     |--------------------------------------------------------------------------
@@ -17,7 +16,7 @@ class Issue extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'issues';
+    protected $table = 'portfolios';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];

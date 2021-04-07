@@ -28,7 +28,7 @@ class TimerCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Timer::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/timer');
-        CRUD::setEntityNameStrings('timer', 'timers');
+        CRUD::setEntityNameStrings('Tracking', 'Log In Tracker');
     }
 
     /**
@@ -39,7 +39,10 @@ class TimerCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
+        //CRUD::setFromDb(); // columns
+        $this->crud->addColumn(['name' => 'Time Log In', 'type' => 'started_at']);
+        $this->crud->addColumn(['name' => 'Time Log Out', 'type' => 'stopped_at']);
+        $this->crud->addColumn(['name' => 'From Location', 'type' => 'location']);
         $this->crud->addColumn(['name' => 'Total Hours Recorded', 'type' => 'number']);
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -83,11 +86,11 @@ class TimerCrudController extends CrudController
             'label' => "Time Log In",
             // optional:
             'datetime_picker_options' => [
-                'format' => 'DD/MM/YYYY HH:mm',
-                'language' => 'fr'
+                'format' => 'YYYY/MM/DD HH:mm',
+                'language' => 'en'
             ],
             'allows_null' => true,
-    // 'default' => '2017-05-12 11:59:59',
+            // 'default' => '2017-05-12 11:59:59',
         ]);
         $this->crud->addField([
             'name' => 'stopped_at',
@@ -95,16 +98,16 @@ class TimerCrudController extends CrudController
             'label' => "Time Log Out",
             // optional:
             'datetime_picker_options' => [
-                'format' => 'DD/MM/YYYY HH:mm',
-                'language' => 'fr'
+                'format' => 'YYYY/MM/DD HH:mm',
+                'language' => 'en'
             ],
             'allows_null' => true,
-    // 'default' => '2017-05-12 11:59:59',
+            // 'default' => '2017-05-12 11:59:59',
         ]);
         $this->crud->addField([
             'name' => 'location',
             'type' => 'text',
-            'label' => "Location"
+            'label' => "From Location"
         ]);
         /**
          * Fields can be defined using the fluent syntax or array syntax:
