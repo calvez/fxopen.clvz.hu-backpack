@@ -39,14 +39,54 @@ class PortfolioCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
+        // dropdown filter
+        $this->crud->addFilter(
+            [
+                'name'  => 'user_id',
+                'type'  => 'dropdown',
+                'label' => 'Client'
+            ],
+            // function ($value) { // if the filter is active
+            //      $this->crud->addClause('where', 'user_id', $value);
+            // }
+        );
 
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
-         */
+        // fields
+        $this->crud->addColumn(
+            [
+                'name' => 'user_id',
+                'type' => 'text',
+                'label' => "Client",
+            ]
+        );
+        $this->crud->addColumn(
+            [
+                'name' => 'passport',
+                'type' => 'text'
+            ]
+        );
+        $this->crud->addColumn(
+            [
+                'name' => 'base_currency',
+                'type' => 'text'
+            ]
+        );
+        $this->crud->addColumn(
+            [
+                'name' => 'total_deposits',
+                'type' => 'text'
+            ]
+        );
+
+        $this->crud->addColumn(
+            [
+                'name' => 'joined',
+                'type' => 'date',
+                'label' => "Date joined",
+            ]
+        );
     }
+
 
     /**
      * Define what happens when the Create operation is loaded.
