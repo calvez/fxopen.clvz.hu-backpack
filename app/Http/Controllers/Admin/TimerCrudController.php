@@ -40,10 +40,10 @@ class TimerCrudController extends CrudController
     protected function setupListOperation()
     {
         //CRUD::setFromDb(); // columns
-        $this->crud->addColumn(['name' => 'Time Log In', 'type' => 'started_at']);
-        $this->crud->addColumn(['name' => 'Time Log Out', 'type' => 'stopped_at']);
-        $this->crud->addColumn(['name' => 'From Location', 'type' => 'location']);
-        $this->crud->addColumn(['name' => 'Total Hours Recorded', 'type' => 'number']);
+        $this->crud->addColumn(['name' => 'started_at', 'type' => 'started_at', 'label' => 'Time Log In']);
+        $this->crud->addColumn(['name' => 'stopped_at', 'type' => 'stopped_at', 'label' => 'Time Log Out']);
+        $this->crud->addColumn(['name' => 'location', 'type' => 'location', 'label' => 'From Location']);
+        $this->crud->addColumn(['name' => 'total_hours', 'type' => 'number', 'label' => 'Total Hours Recorded']);
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
