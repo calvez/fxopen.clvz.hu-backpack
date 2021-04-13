@@ -2,18 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Deposit;
+use App\Models\Portfolio;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
-class DepositFactory extends Factory
+class PortfolioFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Deposit::class;
+    protected $model = Portfolio::class;
 
     /**
      * Define the model's default state.
@@ -23,13 +22,12 @@ class DepositFactory extends Factory
     public function definition()
     {
         return [
-            'date' => $this->faker->date(),
             'user_id' => $this->faker->numberBetween(1, 10),
-            'transaction_type' => $this->faker->randomElement($array = array('deposit', 'withdraw')), // 'b'
             'base_currency' => $this->faker->randomElement($array = array('EUR', 'USD', 'JPY')), // 'b'
-            'transaction_id' => Str::random(15),
-            'amount' => $this->faker->numberBetween(1000, 20000),
-            'details' => $this->faker->text(),
+            'phone' => $this->faker->phoneNumber(),
+            'address' => $this->faker->address(),
+            'passport' => $this->faker->numberBetween(1111111, 1111999),
+            'joined' => $this->faker->date($format = 'Y-m-d', $max = 'now')
         ];
     }
 }

@@ -2,18 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Issue;
+use App\Models\Timer;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
-class IssueFactory extends Factory
+class TimerFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Issue::class;
+    protected $model = Timer::class;
 
     /**
      * Define the model's default state.
@@ -24,8 +23,9 @@ class IssueFactory extends Factory
     {
         return [
             'user_id' => $this->faker->numberBetween(1, 10),
-            'title' => $this->faker->text($maxNbChars = 20),
-            'details' => $this->faker->text(),
+            'started_at' => $this->faker->dateTimeThisMonth($max = 'now', $timezone = null),
+            'stopped_at' => $this->faker->dateTimeThisMonth($max = 'now', $timezone = null),
+            'location' => $this->faker->country(),
         ];
     }
 }

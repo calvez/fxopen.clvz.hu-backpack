@@ -2,18 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Issue;
+use App\Models\Support_ticket_category;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
-class IssueFactory extends Factory
+class Support_ticket_categoryFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Issue::class;
+    protected $model = Support_ticket_category::class;
 
     /**
      * Define the model's default state.
@@ -23,9 +22,7 @@ class IssueFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->numberBetween(1, 10),
-            'title' => $this->faker->text($maxNbChars = 20),
-            'details' => $this->faker->text(),
+            'name' => $this->faker->text($maxNbChars = 20),
         ];
     }
 }
