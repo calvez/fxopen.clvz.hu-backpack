@@ -39,13 +39,11 @@ class NotificationCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
+        //CRUD::setFromDb(); // columns
 
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
-         */
+        $this->crud->addColumn(['name' => 'title', 'label' => 'Title']);
+        $this->crud->addColumn(['name' => 'impact',  'label' => 'Impact']);
+        $this->crud->addColumn(['name' => 'user', 'attribute' => 'name', 'label' => 'Client']);
     }
 
     /**
@@ -88,7 +86,7 @@ class NotificationCrudController extends CrudController
                 'entity'    => 'user', // the method that defines the relationship in your Model
                 'model'     => "App\Models\User", // foreign key model
                 'attribute' => 'name', // foreign key attribute that is shown to user
-                'default'   => 2, // set the default value of the select2
+                //'default'   => 2, // set the default value of the select2
 
                 // also optional
                 'options'   => (function ($query) {

@@ -39,13 +39,11 @@ class Support_ticketCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
-         */
+        //CRUD::setFromDb(); // columns
+        $this->crud->addColumn(['name' => 'user',  'label' => 'Client']);
+        $this->crud->addColumn(['name' => 'title',  'label' => 'Title']);
+        $this->crud->addColumn(['name' => 'user',  'label' => 'Client']);
+        $this->crud->addColumn(['name' => 'time', 'type' => 'datetime', 'label' => 'Time']);
     }
 
     /**

@@ -39,13 +39,22 @@ class TodoCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
-         */
+        //CRUD::setFromDb(); // columns
+        $this->crud->addFilter(
+            [
+                'name'  => 'user_id',
+                'type'  => 'dropdown',
+                'label' => 'Client'
+            ],
+            // function ($value) { // if the filter is active
+            //      $this->crud->addClause('where', 'user_id', $value);
+            // }
+        );
+        $this->crud->addColumn(['name' => 'time', 'label' => 'Time']);
+        $this->crud->addColumn(['name' => 'title',  'label' => 'Title']);
+        $this->crud->addColumn(['name' => 'user_id', 'label' => 'Client']);
+        $this->crud->addColumn(['name' => 'category', 'attribute' => 'name', 'label' => 'Category ']);
+        $this->crud->addColumn(['name' => 'status', 'label' => 'Status ']);
     }
 
     /**
@@ -72,7 +81,7 @@ class TodoCrudController extends CrudController
         $this->crud->addField([
             'name' => 'title',
             'type' => 'text',
-            'label' => "title"
+            'label' => "Title"
         ]);
         $this->crud->addField([
             'name' => 'description',
@@ -106,7 +115,7 @@ class TodoCrudController extends CrudController
                 'entity'    => 'user', // the method that defines the relationship in your Model
                 'model'     => "App\Models\Todos_category", // foreign key model
                 'attribute' => 'name', // foreign key attribute that is shown to user
-                'default'   => 2, // set the default value of the select2
+                //'default'   => 2, // set the default value of the select2
 
                 // also optional
                 'options'   => (function ($query) {

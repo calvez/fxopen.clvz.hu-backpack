@@ -39,13 +39,17 @@ class Trading_accountCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
+        // CRUD::setFromDb(); // columns
 
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
-         */
+
+        $this->crud->addColumn(['name' => 'user', 'label' => 'Client']);
+        $this->crud->addColumn(['name' => 'account_number',  'label' => 'Account number', 'orderable'  => true,]);
+        $this->crud->addColumn(['name' => 'master_name', 'label' => "Master account name", 'orderable'  => true,]);
+        $this->crud->addColumn(['name' => 'sub_account_name', 'label' => "Sub account name", 'orderable'  => true,]);
+        $this->crud->addColumn(['name' => 'base_currency', 'label' => "Base Currency"]);
+        $this->crud->addColumn(['name' => 'balance', 'type' => 'price', 'label' => "Balance", 'orderable'  => true,]);
+        $this->crud->addColumn(['name' => 'equity', 'type' => 'price', 'label' => "Equity"]);
+        $this->crud->addColumn(['name' => 'leverage', 'type' => 'number', 'label' => "Leverage", 'orderable'  => true,]);
     }
 
     /**

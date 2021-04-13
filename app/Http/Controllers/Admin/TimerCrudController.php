@@ -43,7 +43,15 @@ class TimerCrudController extends CrudController
         $this->crud->addColumn(['name' => 'started_at', 'type' => 'started_at', 'label' => 'Time Log In']);
         $this->crud->addColumn(['name' => 'stopped_at', 'type' => 'stopped_at', 'label' => 'Time Log Out']);
         $this->crud->addColumn(['name' => 'location', 'type' => 'location', 'label' => 'From Location']);
-        $this->crud->addColumn(['name' => 'total_hours', 'type' => 'number', 'label' => 'Total Hours Recorded']);
+        $this->crud->addColumn([
+            // run a function on the CRUD model and show its return value
+            'name'  => 'time_recorded',
+            'label' => 'Time Recorded', // Table column heading
+            'type'  => 'number',
+            'function_name' => 'getWorkingHours', // the method in your Model
+            //'function_parameters' => [$this->crud->column('started_at'), 'stopped_at'], // pass one/more parameters to that method
+            // 'limit' => 100, // Limit the number of characters shown
+        ],);
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');

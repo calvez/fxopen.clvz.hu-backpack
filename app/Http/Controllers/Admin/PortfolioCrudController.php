@@ -39,22 +39,12 @@ class PortfolioCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        // dropdown filter
-        $this->crud->addFilter(
-            [
-                'name'  => 'user_id',
-                'type'  => 'dropdown',
-                'label' => 'Client'
-            ],
-            // function ($value) { // if the filter is active
-            //      $this->crud->addClause('where', 'user_id', $value);
-            // }
-        );
+
 
         // fields
         $this->crud->addColumn(
             [
-                'name' => 'user_id',
+                'name' => 'user.name',
                 'type' => 'text',
                 'label' => "Client",
             ]
@@ -74,7 +64,8 @@ class PortfolioCrudController extends CrudController
         $this->crud->addColumn(
             [
                 'name' => 'total_deposits',
-                'type' => 'text'
+                //'type' => 'relationship_count',
+                'label' => "Total Deposits",
             ]
         );
 

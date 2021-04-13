@@ -66,7 +66,7 @@ class DepositCrudController extends CrudController
         // dropdown filter
         $this->crud->addFilter(
             [
-                'name'  => 'user_id',
+                'name'  => 'user.name',
                 'type'  => 'dropdown',
                 'label' => 'Client'
             ],
@@ -92,7 +92,7 @@ class DepositCrudController extends CrudController
         );
         $this->crud->addColumn(
             [
-                'name' => 'user_id',
+                'name' => 'user.name',
                 'type' => 'text',
                 'label' => "Client",
             ]
