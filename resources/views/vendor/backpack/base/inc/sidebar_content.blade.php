@@ -1,30 +1,24 @@
 <img class="rounded d-block" src="{{ asset('images/Logo.jpg') }}" width="75%" />
-
+@hasrole('Administrator')
 <!-- This file is used to store sidebar items, starting with Backpack\Base 0.9.0 -->
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i class="la la-home nav-icon"></i>
         {{ trans('backpack::base.dashboard') }}</a></li>
 
-@hasrole('Administrator')
+
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('todo') }}'><i class='nav-icon la la-question'></i>
         To Do List</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('notification') }}'><i class='nav-icon la la-warning'></i> Notifications</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('trading_account') }}'><i class='nav-icon la la-bar-chart'></i> Trading Accounts</a></li>
-@endhasrole
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('support_ticket') }}'><i class='nav-icon la la-support'></i> Service request</a></li>
-@hasrole('Administrator')
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('timer') }}'><i class='nav-icon la la-question'></i>
         Log In Tracker</a></li>
-@endhasrole
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('issue') }}'><i class='nav-icon la la-question'></i>
         Report Issues</a></li>
-@hasrole('Administrator')
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('deposit') }}'><i class='nav-icon la la-question'></i>
         Transaction Logs</a></li>
-@endhasrole
+
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('portfolio') }}'><i class='nav-icon la la-question'></i>
         Portfolio Cabinet</a></li>
-
-@hasrole('Administrator')
 <!-- Users, Roles, Permissions -->
 <li class="nav-item nav-dropdown">
     <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-users"></i> Authentication</a>
@@ -35,8 +29,6 @@
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('permission') }}"><i class="nav-icon la la-key"></i> <span>Permissions</span></a></li>
     </ul>
 </li>
-@endhasrole
-@hasrole('Administrator')
 <li class="nav-item nav-dropdown">
     <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-cog"></i> Settings</a>
     <ul class="nav-dropdown-items">
@@ -51,3 +43,11 @@
     </ul>
 </li>
 @endhasrole
+
+
+<li class='nav-item'><a class='nav-link' href='{{ route('issues') }}'><i class='nav-icon la la-question'></i>
+        My Issues</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ route('requests') }}'><i class='nav-icon la la-question'></i>
+        My Requests</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ route('accounts') }}'><i class='nav-icon la la-question'></i>
+        My Accounts</a></li>

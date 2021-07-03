@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\IssueController;
+use App\Http\Controllers\RequestController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +27,9 @@ Route::get('/', function () {
 Route::redirect('/fxadmin', '/admin')->name('admin');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('dash')->middleware('auth')->group(function () {
+    Route::get('accounts', [AccountController::class, 'getUserAccounts'])->name('accounts');
+    Route::get('issues', [IssueController::class, 'getUserIssues'])->name('issues');
+    Route::get('requests', [RequestController::class, 'getUserRequests'])->name('requests');
+});

@@ -118,7 +118,7 @@ return [
     ],
 
     // JS files that are loaded in all pages, using Laravel's mix() helper
-    'mix_scripts' => [// file_path => manifest_directory_path
+    'mix_scripts' => [ // file_path => manifest_directory_path
         // 'js/app.js' => '',
     ],
 
@@ -192,20 +192,21 @@ return [
     */
 
     // Fully qualified namespace of the User model
-    'user_model_fqn' => config('auth.providers.users.model'),
+    // 'user_model_fqn' => config('auth.providers.users.model'),
     // 'user_model_fqn' => App\User::class, // works on Laravel <= 7
-    // 'user_model_fqn' => App\Models\User::class, // works on Laravel >= 8
+    'user_model_fqn' => App\Models\User::class, // works on Laravel >= 8
 
     // The classes for the middleware to check if the visitor is an admin
     // Can be a single class or an array of classes
     'middleware_class' => [
         App\Http\Middleware\CheckIfAdmin::class,
+        App\Http\Middleware\AdminMiddleware::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \Backpack\CRUD\app\Http\Middleware\UseBackpackAuthGuardInsteadOfDefaultAuthGuard::class,
     ],
 
     // Alias for that middleware
-    'middleware_key' => 'admin',
+    'middleware_key' => 'Administrator',
     // Note: It's recommended to use the backpack_middleware() helper everywhere, which pulls this key for you.
 
     // Username column for authentication
@@ -216,7 +217,7 @@ return [
 
     // The guard that protects the Backpack admin panel.
     // If null, the config.auth.defaults.guard value will be used.
-    'guard' => 'backpack',
+    'guard' => 'web',
 
     // The password reset configuration for Backpack.
     // If null, the config.auth.defaults.passwords value will be used.
