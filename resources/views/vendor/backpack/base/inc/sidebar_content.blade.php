@@ -10,9 +10,9 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('notification') }}'><i class='nav-icon la la-warning'></i> Notifications</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('trading_account') }}'><i class='nav-icon la la-bar-chart'></i> Trading Accounts</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('support_ticket') }}'><i class='nav-icon la la-support'></i> Service request</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('timer') }}'><i class='nav-icon la la-question'></i>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('timer') }}'><i class='nav-icon la la-book'></i>
         Log In Tracker</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('issue') }}'><i class='nav-icon la la-question'></i>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('issue') }}'><i class='nav-icon la la-ticket'></i>
         Report Issues</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('deposit') }}'><i class='nav-icon la la-question'></i>
         Transaction Logs</a></li>
@@ -44,10 +44,12 @@
 </li>
 @endhasrole
 
-
+@hasrole('User')
+<li class='nav-item'><a class='nav-link' href='{{ route('notifications') }}'><i class='nav-icon la la-warning'></i> My Notifications</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ route('issues') }}'><i class='nav-icon la la-question'></i>
         My Issues</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ route('requests') }}'><i class='nav-icon la la-question'></i>
+<li class='nav-item'><a class='nav-link' href='{{ route('requests') }}'><i class='nav-icon la la-ticket'></i>
         My Requests</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ route('accounts') }}'><i class='nav-icon la la-question'></i>
+<li class='nav-item'><a class='nav-link' href='{{ route('accounts') }}'><i class='nav-icon la la-book'></i>
         My Accounts</a></li>
+@endhasrole

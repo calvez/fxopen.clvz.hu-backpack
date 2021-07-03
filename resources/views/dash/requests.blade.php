@@ -1,22 +1,21 @@
 @extends(backpack_view('blank'))
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">{{ __('Requests') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
+<div class="row">
+    <div class="col-md-12 pt-2">
+        <h2>Service Requests</h2>
+        <a href="/dash/support_ticket/create" class="btn btn-primary" data-style="zoom-in"><span class="ladda-label"><i class="la la-plus"></i> Add Service request</span></a>
+        <table class="table table-light">
+            <tbody>
+                @foreach ($userRequests as $request)
+                <tr>
+                    <td>{{ $request->title}}</td>
+                    <td>{{ $request->time}}</td>
+                    <td>{{ $request->description}}</td>
+                    <td></td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 </div>
 @endsection
