@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\IssueController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\RequestController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,7 @@ Route::prefix('dash')->middleware('auth')->group(function () {
     Route::get('support_ticket', [RequestController::class, 'getUserRequests'])->name('requests');
     Route::get('notification', [NotificationController::class, 'getUserNotifications'])->name('notifications');
     Route::get('logins', [LoginController::class, 'getLogins'])->name('logins'); //
+    Route::get('transactions', [TransactionController::class, 'getUserTransactions'])->name('transactions');
     Route::get('support_ticket/create',  [RequestController::class, 'create'])->name('createRequest');
     Route::post('support_ticket/add',  [RequestController::class, 'add'])->name('addRequest');
 });

@@ -52,7 +52,9 @@
         My Requests</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ route('accounts') }}'><i class='nav-icon la la-book'></i>
         My Accounts</a></li>
-        <li class='nav-item'><a class='nav-link' href='{{ route('logins') }}'><i class='nav-icon la la-terminal'></i>
-                Log In Tracker
-        </a></li>
+<li class='nav-item'><a class='nav-link' href='{{ route('transactions') }}'><i class='nav-icon la la-bank'></i>
+        My Transactions</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ route('logins') }}'><i class='nav-icon la la-terminal'></i>
+        Log In Tracker
+    </a></li>
 @endhasrole
