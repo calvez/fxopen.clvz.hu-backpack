@@ -5,7 +5,7 @@
         <h2>Log in tracker</h2>
         <table class="table table-light">
             <thead>
-                <td>Manager</td>
+                <td>User</td>
                 <td>Started at</td>
                 <td>Stopped at</td>
                 <td>Location</td>
