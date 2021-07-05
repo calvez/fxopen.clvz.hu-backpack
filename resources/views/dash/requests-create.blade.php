@@ -13,7 +13,7 @@
             @csrf
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
             <div class="form-group">
-                <label for="title">Issue Request Title</label>
+                <label for="title">Service Request Title</label>
                 <input type="text" class="form-control" id="title" name="title" aria-describedby="title" required placeholder="Enter the title">
             </div>
             <div class="form-group">
