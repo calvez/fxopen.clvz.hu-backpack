@@ -29,6 +29,7 @@ class DepositFactory extends Factory
             'base_currency' => $this->faker->randomElement($array = array('EUR', 'USD', 'JPY')), // 'b'
             'transaction_id' => Str::random(15),
             'amount' => $this->faker->numberBetween(1000, 20000),
+            'status' => $this->faker->randomElement($array = array('Approved', 'Denied', 'Processing')), // 'b'
             'details' => $this->faker->text(),
         ];
     }

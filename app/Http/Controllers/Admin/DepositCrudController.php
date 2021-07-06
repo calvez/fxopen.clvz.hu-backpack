@@ -118,6 +118,13 @@ class DepositCrudController extends CrudController
         );
         $this->crud->addColumn(
             [
+                'name' => 'status',
+                'type' => 'text',
+                'label' => "Status"
+            ]
+        );
+        $this->crud->addColumn(
+            [
                 'name' => 'details',
                 'type' => 'text',
                 'label' => "Details"
@@ -178,7 +185,7 @@ class DepositCrudController extends CrudController
             'type' => 'select_from_array',
             'label' => "Base Currency",
             'options'   => ['usd' => 'USD', 'eur' => 'EUR', 'aud' => 'AUD', 'jpy' => 'JPY'],
-            'allows_null'     => true,
+            'allows_null'     => false,
             'allows_multiple' => true,
         ]);
         $this->crud->addField([
@@ -190,6 +197,14 @@ class DepositCrudController extends CrudController
             'name' => 'transaction_id',
             'type' => 'textarea',
             'label' => "Digital Transaction ID"
+        ]);
+        $this->crud->addField([
+            'name' => 'status',
+            'type' => 'select_from_array',
+            'label' => "Status",
+            'options'   => ['approved' => 'Approved', 'denied' => 'Denied', 'processing' => 'Processing'],
+            'allows_null'     => true,
+            'allows_multiple' => false,
         ]);
         $this->crud->addField([
             'name' => 'details',
